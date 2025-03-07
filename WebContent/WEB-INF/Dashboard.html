@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #007bff;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            border-bottom: 1px solid #0056b3;
+            cursor: pointer;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #0056b3;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="#" onclick="showSection('address')">Address Screen</a></li>
+            <li><a href="#" onclick="showSection('education')">Education</a></li>
+            <li><a href="#" onclick="showSection('family')">Family Details</a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Address Section -->
+        <div id="address" class="form-section">
+            <h2>Address Screen</h2>
+            <form>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+
+        <!-- Education Section -->
+        <div id="education" class="form-section">
+            <h2>Education</h2>
+            <form>
+                <div class="form-group">
+                    <label for="qualification">Qualification:</label>
+                    <input type="text" id="qualification" name="qualification" required>
+                </div>
+                <div class="form-group">
+                    <label for="passout-year">Passout Year:</label>
+                    <input type="text" id="passout-year" name="passout-year" required>
+                </div>
+                <div class="form-group">
+                    <label for="percentage">Percentage in Highest Qualification:</label>
+                    <input type="text" id="percentage" name="percentage" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+
+        <!-- Family Details Section -->
+        <div id="family" class="form-section">
+            <h2>Family Details</h2>
+            <form>
+                <div class="form-group">
+                    <label for="father-name">Father Name:</label>
+                    <input type="text" id="father-name" name="father-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mother-name">Mother Name:</label>
+                    <input type="text" id="mother-name" name="mother-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="siblings">Number of Siblings:</label>
+                    <input type="text" id="siblings" name="siblings" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show the selected section
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
